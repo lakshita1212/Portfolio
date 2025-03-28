@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <title>My Portfolio Website</title>
+</head>
+<body>
+    <nav>
+        <div class="nav_content"> 
+            <div class="logo"><a href="#">My Portfolio</a></div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#work-experience">Work Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#extracurriculars">Extracurriculars</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section">
+        <div class="section__container">
+            <div class="content">
+                <p class="subtitle">Hi!</p>
+                <h1 class="title">
+                    I'm <span>Lakshita,<br></span> a Computer Science Student
+                </h1>
+                <p class="description">
+                    Hello! I'm a CS Honors College student at New Jersey Institute of Technology. 
+                    I've worked on projects ranging from website development to machine learning. 
+                    I'm currently looking for more opportunities to learn technical skills. Let's connect!
+                </p>
+                <div class="action__btns">
+                    <a href="#contact" class="action__link">
+                        <button class="email__me">Contact Me</button>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1ij_SIIz5BerCnwGohTr2hcMsyShdn0TL/view?usp=sharing" target="_blank" class="action__link">
+                        <button class="portfolio">Resume</button>
+                    </a>
+                </div>
+            </div>
+            <div class="image">
+                <img src="assets/profile.jpg" alt="Profile Picture">
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Work Experience Section -->
+    <section id="work-experience" class="section">
+        <h2>Work Experience</h2>
+        <div class="work-container">
+            <div class="work-item">
+                <h3>Incoming Intern - Merck</h3>
+                <span class="work-date">Summer 2025</span>
+                <p>Excited to join Merck's Tech Future Talent Program.</p>
+            </div>
+            <div class="work-item">
+                <h3>Incoming Student Researcher - Brown University</h3>
+                <span class="work-date">Fall 2025</span>
+                <p>Will be conducting research in Brown University's Atlas Group.</p>
+            </div>
+            <div class="work-item">
+                <h3>Teaching Assistant - Ying Wu College of Computing</h3>
+                <span class="work-date">Sept 2024 - Dec 2024</span>
+                <ul>
+                    <li>Graded over 100 assignments, held weekly office hours, and provided timely and constructive feedback to 60+ students.</li>
+                    <li>Developed and organized extra learning resources, increasing student performance on midterm exams by 10%.</li>
+                </ul>
+            </div>
+            <div class="work-item">
+                <h3>Tech and Digital Student Program Participant - Zoetis</h3>
+                <span class="work-date">August 2022</span>
+                <ul>
+                    <li>
+                        Gained understanding of SAP software, ETL tools, Risk Management, and E-commerce
+                    </li>
+                    <li>
+                        Led a group to compile a research paper and presentation on Supply Chain in the Pharmaceutical Industry
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <a href = "http://github.com/lakshita1212" target="_blank" class="action__link">
+            <h2>Projects</h2>
+        </a>
+        
+        <div class="projects-container">
+            <div class="project-item">
+                <h3><a href="https://github.com/lakshita1212/DashApp" target="_blank">Data Analysis and Prediction App</a></h3>
+                <p>Collaborated with a team to develop a data prediction application using Python, Dash, and Pandas. The app enables users to upload custom datasets and interactively explore data features to make informed inferences.</p>
+            </div>
+            <div class="project-item">
+                <h3><a href="https://github.com/lakshita1212/Database-Surfer-for-Kumon-Center" target="_blank">Kumon Database Surfer</a></h3>
+                <p>Co-developed a Flask-based application that allows users to query and retrieve student results from a dataset. Utilized Pandas for efficient data manipulation and designed a simple yet effective user interface using HTML and CSS.</p>
+            </div>
+            <div class="project-item">
+                <h3><a href="https://github.com/lakshita1212/AtmosFlect" target="_blank">AtmosFlect</a></h3>
+                <p>Finalist at HackNJIT 2024. Integrated an interactive map with real-time air pollution and smog data using APIs. Built with Python, JavaScript, Flask, HTML, and CSS to provide users with up-to-date environmental information.</p>
+            </div>
+        </div>
+            <div class="projects-button">
+                <a href="https://github.com/lakshita1212" target="_blank">
+                    <button class="more-projects">More Projects</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <ul>
+            <li><strong>Programming Languages:</strong> Python, Java, C++, C, JavaScript</li>
+            <li><strong>Web Development:</strong> HTML, CSS, React.js, Node.js</li>
+            <li><strong>Databases:</strong> MongoDB, SQL</li>
+            <li><strong>Other Tools:</strong> SAP MM ERP, Github</li>
+        </ul>
+    </section>
+
+    <!-- Extracurricular Activities Section -->
+    <section id="extracurriculars" class="section">
+        <h2>Extracurricular Activities</h2>
+        <div class="experience__container">
+            <div class="experience__box">
+                <h3>Robotics Program Instructor | JerseySTEM Volunteering</h3>
+                <span class="experience-date">March 2025 - Present | Newark, NJ</span>
+                <ul>
+                    <li>Taught weekly robotics classes to middle school girls, providing mentorship and fostering interest in STEM careers.</li>
+                </ul>
+            </div>
+            <div class="experience__box">
+                <h3>Data Science Volunteer | DataKind</h3>
+                <span class="experience-date">March 2025 - Present | Remote</span>
+                <ul>
+                    <li>Contributed to data-driven projects by researching and analyzing 10+ data sources.</li>
+                    <li>Partnered with data scientists to uncover financial and economic opportunity insights about Kenya.</li>
+                </ul>
+            </div>
+            <div class="experience__box">
+                <h3>Fundraising Coordinator | Women in Computing Society</h3>
+                <span class="experience-date">January 2024 - Present | NJIT</span>
+                <ul>
+                    <li>Collaborated with board members to organize technical and networking events for over 400 members.</li>
+                    <li>Maintained positive relationships with corporate sponsors, college faculty, and other organizations on campus.</li>
+                </ul>
+            </div>
+            <div class="experience__box">
+                <h3>Hackathon Organizer | GirlHacks 2024 Committee</h3>
+                <span class="experience-date">April 2024 - Present | Newark, NJ</span>
+                <ul>
+                    <li>Organized GirlHacks Hackathon to empower women, creating an encouraging environment for over 300 attendees.</li>
+                    <li>Designed the first GirlHacks sponsorship packet, secured partnerships with 10+ companies, and raised $17,250 in funds.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Contact Section -->
+    <footer id="contact">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <p>
+                <a href="mailto:lakshitamadhavan12@gmail.com">
+                    <i class="fas fa-envelope"></i> lakshitamadhavan12@gmail.com
+                </a>
+            </p>
+            <p>
+                <a href="https://www.linkedin.com/in/lakshitam04/" target="_blank">
+                    <i class="fab fa-linkedin"></i> linkedin.com/in/lakshitam04/
+                </a>
+            </p>
+            <p>
+                <a href="https://github.com/lakshita1212" target="_blank">
+                    <i class="fab fa-github"></i> github.com/lakshita1212
+                </a>
+            </p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

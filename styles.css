@@ -1,0 +1,286 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
+:root {
+    --primary-color: #A7C7A0; /* Sage Green */
+    --secondary-color: #F5F5DC; /* Beige */
+    --accent-color: #5E7D5E; /* Dark Green */
+    --text-color: #2C3E50; /* Deep Gray */
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    margin-top: 70px;
+}
+
+
+/* Navigation Bar */
+nav {
+  background-color: var(--primary-color);
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensures the navbar stays on top of other content */
+}
+
+.nav_content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.section {
+    padding: 100px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section__container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.content {
+    flex: 1;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.title {
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.title span {
+    color: var(--accent-color);
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.action__btns {
+  margin-top: 20px;
+}
+
+.action__link {
+  text-decoration: none;
+  display: inline-block; /* Ensures the link only wraps the button */
+  margin-right: 10px; /* Space between buttons */
+}
+
+.action__btns a {
+  margin-right: 10px; /* Add space between buttons */
+}
+
+button {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.image {
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* This makes the image circular */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border: 5px solid var(--accent-color); /* Adds a green border */
+  display: block;
+}
+
+
+
+/* Sections */
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.work-container, .projects-container, .experience__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.work-item, .project-item, .experience__box {
+    background: var(--white);
+    padding: 20px;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover, .project-item:hover, .experience__box:hover {
+    transform: scale(1.02);
+}
+
+p {
+    line-height: 1.6;
+}
+
+.work-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: flex-start;
+}
+
+.work-item {
+  background: var(--white);
+  padding: 20px;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+  transform: scale(1.02);
+}
+
+.work-item h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.work-date {
+  font-size: 1rem;
+  color: var(--accent-color);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.work-item p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+/* Skills Section */
+#skills ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#skills li {
+    background: var(--white);
+    margin: 8px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section__container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .work-item, .project-item, .experience__box {
+        width: 95%;
+    }
+}
