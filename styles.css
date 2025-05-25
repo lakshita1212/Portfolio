@@ -315,7 +315,7 @@ p {
     padding: 25px 30px;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    border-left: 6px solid var(--accent-color); /* Optional for accent bar */
+    border-left: 6px solid var(--accent-color); 
 }
 
 
