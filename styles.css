@@ -209,6 +209,7 @@ button:hover {
 .image img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   border-radius: 50%; 
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
@@ -368,7 +369,16 @@ footer a:hover {
     color: var(--accent-color);
 }
 
+.work-entry, .experience-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
 
+h2{
+  padding-right: 60px;
+}
 @media (max-width: 768px) {
     .section__container {
         flex-direction: column;
@@ -384,4 +394,6 @@ footer a:hover {
         width: 95%;
     }
 }
+
+
 
