@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
-    <title>My Portfolio Website</title>
+    <title>Lakshita Madhavan | Portfolio</title>
 </head>
 <body>
     <nav>
-        <div class="nav_content"> 
+        <div class="nav_content">
             <div class="logo"><a href="#">My Portfolio</a></div>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#work-experience">Work Experience</a></li>
+                <li><a href="#work-experience">Professional Experience</a></li>
+                <li><a href="#extracurriculars">Extracurriculars</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#extracurriculars">Extracurriculars</a></li>
+                <li><a href="#additional-info">Additional Info</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -42,18 +40,40 @@
                     <a href="#contact" class="action__link">
                         <button class="email__me">Contact Me</button>
                     </a>
-
                 </div>
             </div>
             <div class="image">
-                <img src="assets/profile.jpg" alt="Profile Picture">
+                <img src="assets/profile.jpg" alt="Lakshita's Profile Picture" />
             </div>
         </div>
     </section>
-    
+
+    <section id="spotlight" class="section spotlight-section">
+        <div class="spotlight-heading">
+            <h2>Spotlight Experience & Project</h2>
+        </div>
+        <div class="spotlight-content">
+            <div class="spotlight-text">
+                <h3>🌍 Spotlight: Study Abroad in Taiwan</h3>
+                <p>
+                    In early 2025, I participated in a study abroad academic program in <strong>Taiwan</strong> focused on cross-cultural learning and Mandarin language studies. Through this experience, I met new peers and developed a deeper appreciation for global perspectives in tech.
+                </p>
+                <p>
+                    This journey reminded me why curiosity and empathy are so important in the tech industry. Going forward, I hope to embrace new challenges and try things with an open mind.
+                </p>
+            </div>
+            <div class="spotlight-highlight">
+                <h3>💡 Favorite Project: Python Autoscroller</h3>
+                <p>
+                    My favorite (and most useful!) project is <strong>my autoscroller</strong>. Outside of school, I like to spend my time immersed in books, e-books, and comics. The autoscroller was a small, random side project that I didn’t realize I would be using so often!
+                </p>
+                <a href="https://github.com/lakshita1212/Python-Autoscroller" target="_blank" class="project-link">View on GitHub ↗</a>
+            </div>
+        </div>
+    </section>
 
     <section id="work-experience" class="section">
-        <h2>Work Experience</h2>
+        <h2>Professional Experience</h2>
         <div class="work-container">
             <div class="work-item">
                 <h3>Incoming Intern - Merck</h3>
@@ -64,6 +84,14 @@
                 <h3>Incoming Student Researcher - Brown University</h3>
                 <span class="work-date">Fall 2025</span>
                 <p>Will be conducting research in Brown University's Atlas Group.</p>
+            </div>
+            <div class="work-item">
+                <h3>AI/ML Fellow - Break Through Tech, Cornell University</h3>
+                <span class="work-date">May 2025 - Present</span>
+                <ul>
+                    <li>Selected for competitive fellowship to build hands-on ML and data science skills</li>
+                    <li>Completed projects using supervised learning, Python, and exploratory data analysis</li>
+                </ul>
             </div>
             <div class="work-item">
                 <h3>Teaching Assistant - Ying Wu College of Computing</h3>
@@ -77,57 +105,14 @@
                 <h3>Tech and Digital Student Program Participant - Zoetis</h3>
                 <span class="work-date">August 2022</span>
                 <ul>
-                    <li>
-                        Gained understanding of SAP software, ETL tools, Risk Management, and E-commerce
-                    </li>
-                    <li>
-                        Led a group to compile a research paper and presentation on Supply Chain in the Pharmaceutical Industry
-                    </li>
+                    <li>Gained understanding of SAP software, ETL tools, Risk Management, and E-commerce</li>
+                    <li>Led a group to compile a research paper and presentation on Supply Chain in the Pharmaceutical Industry</li>
                 </ul>
             </div>
         </div>
     </section>
-    
 
-    <section id="projects" class="section">
-        <a href = "http://github.com/lakshita1212" target="_blank" class="action__link">
-            <h2>Projects</h2>
-        </a>
-        
-        <div class="projects-container">
-            <div class="project-item">
-                <h3><a href="https://github.com/lakshita1212/DashApp" target="_blank">Data Analysis and Prediction App</a></h3>
-                <p>Collaborated with a team to develop a data prediction application using Python, Dash, and Pandas. The app enables users to upload custom datasets and interactively explore data features to make informed inferences.</p>
-            </div>
-            <div class="project-item">
-                <h3><a href="https://github.com/lakshita1212/Database-Surfer-for-Kumon-Center" target="_blank">Kumon Database Surfer</a></h3>
-                <p>Co-developed a Flask-based application that allows users to query and retrieve student results from a dataset. Utilized Pandas for efficient data manipulation and designed a simple yet effective user interface using HTML and CSS.</p>
-            </div>
-            <div class="project-item">
-                <h3><a href="https://github.com/lakshita1212/AtmosFlect" target="_blank">AtmosFlect</a></h3>
-                <p>Finalist at HackNJIT 2024. Integrated an interactive map with real-time air pollution and smog data using APIs. Built with Python, JavaScript, Flask, HTML, and CSS to provide users with up-to-date environmental information.</p>
-            </div>
-        </div>
-            <div class="projects-button">
-                <a href="https://github.com/lakshita1212" target="_blank">
-                    <button class="more-projects">More Projects</button>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Programming Languages:</strong> Python, Java, C++, C, JavaScript</li>
-            <li><strong>Web Development:</strong> HTML, CSS, React.js, Node.js</li>
-            <li><strong>Databases:</strong> MongoDB, SQL</li>
-            <li><strong>Other Tools:</strong> SAP MM ERP, Github</li>
-        </ul>
-    </section>
-
-    <section id="extracurriculars" class="section">
+        <section id="extracurriculars" class="section">
         <h2>Extracurricular Activities</h2>
         <div class="experience__container">
             <div class="experience__box">
@@ -163,8 +148,87 @@
             </div>
         </div>
     </section>
-    
-    
+
+
+
+    <section id="projects" class="section">
+        <a href="http://github.com/lakshita1212" target="_blank" class="action__link">
+            <h2>Projects</h2>
+        </a>
+        <div class="projects-container">
+            <div class="project-item">
+                <h3><a href="https://github.com/lakshita1212/DashApp" target="_blank">Data Analysis and Prediction App</a></h3>
+                <p>Collaborated with a team to develop a data prediction application using Python, Dash, and Pandas. The app enables users to upload custom datasets and interactively explore data features to make informed inferences.</p>
+            </div>
+            <div class="project-item">
+                <h3><a href="http://movie-reviews-center.netlify.app/" target="_blank">Movie Reviews Central</a></h3>
+                <p>Full-stack MERN web app that allows users to browse and submit movie reviews in real-time. Built RESTful APIs with Express and Node.js, used MongoDB for data storage, and implemented a dynamic React front-end.</p>
+            </div>
+            <div class="project-item">
+                <h3><a href="https://github.com/lakshita1212/HackPrinceton" target="_blank">SafePath</a></h3>
+                <p>Developed during HackPrinceton. Built with TypeScript, Python, Flask, and Supabase. SafePath allows caretakers to set safety zones for patients with declining health conditions, sending alerts if a patient leaves the zone.</p>
+            </div>
+            <div class="project-item">
+                <h3><a href="https://github.com/lakshita1212/Database-Surfer-for-Kumon-Center" target="_blank">Kumon Database Surfer</a></h3>
+                <p>Co-developed a Flask-based application that allows users to query and retrieve student results from a dataset. Utilized Pandas for efficient data manipulation and designed a simple yet effective user interface using HTML and CSS.</p>
+            </div>
+            <div class="project-item">
+                <h3><a href="https://github.com/lakshita1212/AtmosFlect" target="_blank">AtmosFlect</a></h3>
+                <p>Finalist at HackNJIT 2024. Integrated an interactive map with real-time air pollution and smog data using APIs. Built with Python, JavaScript, Flask, HTML, and CSS to provide users with up-to-date environmental information.</p>
+            </div>
+        </div>
+        <div class="projects-button">
+            <a href="https://github.com/lakshita1212" target="_blank">
+                <button class="more-projects">More Projects</button>
+            </a>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <ul>
+            <li><strong>Programming Languages:</strong> Python, Java, C++, C, JavaScript, HTML, CSS, SQL, PHP</li>
+            <li><strong>Frameworks & Tools:</strong> React.js, Node.js, Express.js, Flask, Dash, Git</li>
+            <li><strong>Libraries:</strong> Pandas, NumPy, Scikit-learn</li>
+            <li><strong>Databases:</strong> MongoDB, MySQL, Supabase</li>
+            <li><strong>Other Technologies:</strong> SAP Procurement, GitHub</li>
+        </ul>
+    </section>
+
+    <section id="additional-info">
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Certifications / Online Courses</h3>
+      <ul>
+        <li><strong>Google Certification Course - Machine Learning</strong> — Ongoing</li>
+        <li><strong>AWS Cloud Practitioner</strong> — Ongoing</li>
+        <li><strong>CodePath Technical Interview Prep</strong> — Completed</li>
+        <li><strong>CodePath Web Development</strong> — Completed</li>
+        <li><strong>Intro to SAP ERP</strong> — Completed</li>
+      </ul>
+    </div>
+<br>
+    <div class="info-card">
+      <h3>Additional Information</h3>
+      <ul>
+        <li><strong>Professional Affiliations:</strong> DataKind, JerseySTEM, Rewriting the Code, CodePath, Grace Hopper Celebration (GHC) 2024</li>
+        <li><strong>Honors & Awards:</strong> Dean’s List, DCU Kids Scholarship, Steering Presidential Award, Woman’s Club Scholarship</li>
+      </ul>
+    </div>
+<br>
+    <div class="info-card">
+      <h3>Hobbies & Interests</h3>
+      <ul>
+        <li><strong>Playing the Guitar</strong> - In my free time, I love having jam sessions with my friends who play other instruments! </li>
+        <li><strong>Reading!! </strong> - My favorite genres are fantasy & historical fiction. Current Read — <em>Lovely War</em> by Julie Berry</li>
+        <li><strong>Filming & Editing Movies/Vidoes </strong> - I love editing and producing short video movies about recent trips and short movies. </li>
+
+    </ul>
+    </div>
+  </div>
+</section>
+
+
 
     <footer id="contact">
         <h2>Contact</h2>
@@ -186,7 +250,5 @@
             </p>
         </div>
     </footer>
-    
-
 </body>
 </html>
