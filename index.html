@@ -1,291 +1,1006 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Lakshita Madhavan | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <title>Lakshita Madhavan | Portfolio</title>
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --ink:       #1a1a1a;
+      --ink-soft:  #4a4a4a;
+      --ink-muted: #8a8a8a;
+      --paper:     #faf8f4;
+      --paper-alt: #f2ede5;
+      --accent:    #b5612a;
+      --accent-lt: #d4895a;
+      --river:     #2c5f6e;
+      --river-lt:  #4a8fa0;
+      --river-bg:  #eaf4f7;
+      --border:    #e0d8cc;
+      --radius:    8px;
+      --shadow:    0 2px 20px rgba(26,26,26,0.06);
+      --shadow-md: 0 6px 40px rgba(26,26,26,0.10);
+    }
+
+    /* ─── RESET & BASE ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    h1,h2,h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.2; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); margin-bottom: 2.4rem; }
+    h3 { font-size: 1.25rem; }
+
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--accent-lt); }
+
+    ul { list-style: none; }
+    img { display: block; }
+
+    .section { padding: 5rem clamp(1.5rem, 8vw, 7rem); max-width: 1200px; margin: 0 auto; }
+
+    /* ─── NAVBAR ─────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,248,244,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav_content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: .85rem clamp(1.5rem, 8vw, 7rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: .03em;
+    }
+    nav ul { display: flex; gap: 2rem; flex-wrap: wrap; }
+    nav ul li a {
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--accent); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .section.hero-section {
+      padding-top: 6rem;
+      padding-bottom: 5rem;
+    }
+    .section__container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+    }
+    .content .subtitle {
+      font-family: 'DM Mono', monospace;
+      font-size: .85rem;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+    .content .title {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      margin-bottom: 1.4rem;
+      color: var(--ink);
+    }
+    .content .title span { color: var(--accent); }
+    .content .description {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 52ch;
+      margin-bottom: 2rem;
+    }
+    .email__me {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: .75rem 2rem;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      font-weight: 500;
+      letter-spacing: .05em;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .email__me:hover { background: var(--accent-lt); transform: translateY(-1px); }
+    .image img {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ─── SPOTLIGHT ──────────────────────────────────────────── */
+    .spotlight-section {
+      background: var(--paper-alt);
+      border-radius: 16px;
+      margin: 0 clamp(1rem, 4vw, 4rem);
+      max-width: none;
+      padding: 3.5rem clamp(2rem, 6vw, 5rem);
+    }
+    .spotlight-heading h2 { margin-bottom: 2rem; }
+    .spotlight-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .spotlight-text p,
+    .spotlight-highlight p {
+      color: var(--ink-soft);
+      margin-bottom: .8rem;
+      font-size: .97rem;
+    }
+    .spotlight-text h3,
+    .spotlight-highlight h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+    .project-link {
+      display: inline-block;
+      margin-top: .5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: .82rem;
+      color: var(--accent);
+      letter-spacing: .04em;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    /* ─── SECTION HEADINGS ───────────────────────────────────── */
+    .section h2 {
+      position: relative;
+      display: inline-block;
+    }
+    .section h2::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 3.5rem;
+      background: var(--accent);
+      margin-top: .5rem;
+      border-radius: 2px;
+    }
+
+    /* ─── WORK EXPERIENCE ────────────────────────────────────── */
+    .work-container { display: flex; flex-direction: column; gap: 2rem; }
+    .work-entry {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      padding: 1.8rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .work-entry:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .work-entry img {
+      flex-shrink: 0;
+      width: 120px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+    .work-item h3 { font-size: 1.15rem; color: var(--ink); margin-bottom: .25rem; }
+    .work-date {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: .78rem;
+      color: var(--accent);
+      letter-spacing: .05em;
+      margin-bottom: .7rem;
+    }
+    .work-item p { color: var(--ink-soft); font-size: .95rem; }
+    .work-item ul { padding-left: 1rem; }
+    .work-item ul li {
+      position: relative;
+      color: var(--ink-soft);
+      font-size: .95rem;
+      padding-left: .75rem;
+      margin-bottom: .35rem;
+    }
+    .work-item ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .badge-new {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: .7rem;
+      background: var(--accent);
+      color: #fff;
+      padding: .15rem .5rem;
+      border-radius: 20px;
+      margin-left: .5rem;
+      vertical-align: middle;
+      letter-spacing: .04em;
+    }
+
+    /* ─── EXTRACURRICULARS ───────────────────────────────────── */
+    .experience__container { display: flex; flex-direction: column; gap: 2rem; }
+    .experience-entry {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      padding: 1.8rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .experience-entry:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .experience-entry img {
+      flex-shrink: 0;
+      width: 120px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+    .experience__box h3 { font-size: 1.1rem; margin-bottom: .25rem; color: var(--ink); }
+    .experience-date {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: .78rem;
+      color: var(--river);
+      letter-spacing: .05em;
+      margin-bottom: .7rem;
+    }
+    .experience__box ul { padding-left: 1rem; }
+    .experience__box ul li {
+      position: relative;
+      color: var(--ink-soft);
+      font-size: .95rem;
+      padding-left: .75rem;
+      margin-bottom: .35rem;
+    }
+    .experience__box ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--river);
+    }
+
+    /* ─── LIFE ON THE RIVER ──────────────────────────────────── */
+    #river-project {
+      background: linear-gradient(160deg, #eaf4f7 0%, #f5fbfd 60%, var(--paper) 100%);
+      border-radius: 20px;
+      margin: 0 clamp(1rem, 4vw, 4rem);
+      max-width: none;
+      padding: 4rem clamp(2rem, 6vw, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+    #river-project::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,143,160,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #river-project::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 10%;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(44,95,110,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .river-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: .6rem;
+      flex-wrap: wrap;
+    }
+    .river-header h2 { color: var(--river); }
+    .river-header h2::after { background: var(--river); }
+    .river-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--river-lt);
+      border: 1px solid var(--river-lt);
+      padding: .2rem .65rem;
+      border-radius: 20px;
+    }
+    .river-philosophy {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+      font-style: italic;
+      color: var(--river);
+      border-left: 3px solid var(--river-lt);
+      padding-left: 1.2rem;
+      margin: 1.5rem 0 2.5rem;
+      max-width: 72ch;
+    }
+
+    /* timeline */
+    .river-timeline {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .timeline-node {
+      flex: 1;
+      min-width: 200px;
+      background: #fff;
+      border: 1px solid rgba(44,95,110,.2);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      position: relative;
+      box-shadow: 0 2px 12px rgba(44,95,110,.06);
+    }
+    .timeline-node .t-date {
+      font-family: 'DM Mono', monospace;
+      font-size: .73rem;
+      color: var(--river-lt);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+    .timeline-node .t-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--river);
+      margin-bottom: .4rem;
+    }
+    .timeline-node .t-body {
+      font-size: .88rem;
+      color: var(--ink-soft);
+    }
+    .timeline-arrow {
+      align-self: center;
+      font-size: 1.4rem;
+      color: var(--river-lt);
+      opacity: .6;
+      padding-top: .2rem;
+    }
+
+    /* contribution grid */
+    .river-contributions-title {
+      font-family: 'DM Mono', monospace;
+      font-size: .78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1.2rem;
+    }
+    .river-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .river-card {
+      background: #fff;
+      border: 1px solid rgba(44,95,110,.15);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      transition: box-shadow .2s, transform .15s;
+    }
+    .river-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .river-card .rc-icon {
+      font-size: 1.6rem;
+      margin-bottom: .7rem;
+    }
+    .river-card .rc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--river-lt);
+      margin-bottom: .3rem;
+    }
+    .river-card .rc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--river);
+      margin-bottom: .5rem;
+    }
+    .river-card p {
+      font-size: .88rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+    .river-card .rc-collab {
+      margin-top: .6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: .74rem;
+      color: var(--ink-muted);
+    }
+    .river-stack {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .stack-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: .73rem;
+      letter-spacing: .05em;
+      background: rgba(44,95,110,.08);
+      color: var(--river);
+      border: 1px solid rgba(44,95,110,.2);
+      padding: .25rem .7rem;
+      border-radius: 20px;
+    }
+
+    /* ─── PROJECTS ───────────────────────────────────────────── */
+    #projects h2 a { color: inherit; }
+    #projects h2 a:hover { color: var(--accent); }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .project-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow .2s, transform .15s;
+    }
+    .project-item:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .project-item h3 { font-size: 1.05rem; margin-bottom: .6rem; }
+    .project-item h3 a { color: var(--ink); }
+    .project-item h3 a:hover { color: var(--accent); }
+    .project-item p { font-size: .91rem; color: var(--ink-soft); }
+    .projects-button { text-align: center; margin-top: 1rem; }
+    .more-projects {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      padding: .65rem 2rem;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .more-projects:hover { background: var(--accent); color: #fff; }
+
+    /* ─── SKILLS ─────────────────────────────────────────────── */
+    #skills ul { display: flex; flex-direction: column; gap: 1rem; }
+    #skills li {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.4rem;
+      font-size: .95rem;
+      color: var(--ink-soft);
+    }
+    #skills li strong { color: var(--ink); }
+
+    /* ─── ADDITIONAL INFO ────────────────────────────────────── */
+    #additional-info { padding: 5rem clamp(1.5rem, 8vw, 7rem); max-width: 1200px; margin: 0 auto; }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+    .info-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 1.1rem;
+      color: var(--ink);
+    }
+    .info-card h3::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 2.5rem;
+      background: var(--accent);
+      margin-top: .4rem;
+      border-radius: 2px;
+    }
+    .info-card ul { display: flex; flex-direction: column; gap: .65rem; }
+    .info-card li { font-size: .92rem; color: var(--ink-soft); }
+    .info-card li strong { color: var(--ink); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer#contact {
+      background: var(--ink);
+      color: rgba(255,255,255,.85);
+      padding: 4rem clamp(1.5rem, 8vw, 7rem);
+      text-align: center;
+    }
+    footer h2 {
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+    footer h2::after { background: var(--accent-lt); }
+    .contact-container {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-container p a {
+      color: rgba(255,255,255,.75);
+      font-size: .95rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      transition: color .2s;
+    }
+    .contact-container p a:hover { color: var(--accent-lt); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav ul { gap: 1rem; }
+      .section__container { grid-template-columns: 1fr; }
+      .image { order: -1; }
+      .image img { width: 160px; height: 160px; margin: 0 auto; }
+      .spotlight-content { grid-template-columns: 1fr; }
+      .work-entry, .experience-entry { flex-direction: column; }
+      .work-entry img, .experience-entry img { width: 90px; }
+      .timeline-arrow { transform: rotate(90deg); align-self: auto; width: 100%; text-align: center; }
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <div class="nav_content">
-            <div class="logo"><a href="#">My Portfolio</a></div>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#work-experience">Professional Experience</a></li>
-                <li><a href="#extracurriculars">Extracurriculars</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#additional-info">Additional Info</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <section class="section">
-        <div class="section__container">
-            <div class="content">
-                <p class="subtitle">Hi!</p>
-                <h1 class="title">
-                    I'm <span>Lakshita,<br></span> a Computer Science Student
-                </h1>
-                <p class="description">
-                    Hello! I'm a CS Honors College student at New Jersey Institute of Technology. 
-                    I've worked on projects ranging from website development to machine learning. 
-                    I'm currently looking for more opportunities to learn technical skills. Let's connect!
-                </p>
-                <div class="action__btns">
-                    <a href="#contact" class="action__link">
-                        <button class="email__me">Contact Me</button>
-                    </a>
-                </div>
-            </div>
-            <div class="image">
-                <img src="assets/profile.jpg" alt="Lakshita's Profile Picture" />
-            </div>
-        </div>
-    </section>
+  <!-- ─── NAVBAR ──────────────────────────────────────────── -->
+  <nav>
+    <div class="nav_content">
+      <div class="logo"><a href="#">Lakshita Madhavan</a></div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#river-project">River Project</a></li>
+        <li><a href="#work-experience">Experience</a></li>
+        <li><a href="#extracurriculars">Extracurriculars</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#additional-info">More</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section id="spotlight" class="section spotlight-section">
-        <div class="spotlight-heading">
-            <h2>Spotlight Experience & Project</h2>
+  <!-- ─── HERO ────────────────────────────────────────────── -->
+  <section class="section hero-section">
+    <div class="section__container">
+      <div class="content">
+        <p class="subtitle">Hi, I'm</p>
+        <h1 class="title">
+          I'm <span>Lakshita,<br /></span> a Computer Science Student
+        </h1>
+        <p class="description">
+          CS Honors College student at New Jersey Institute of Technology.
+          I've worked on projects spanning machine learning, full-stack web development,
+          data analytics, and community-engaged research. Currently seeking opportunities
+          to grow, contribute, and connect. Let's talk!
+        </p>
+        <div class="action__btns">
+          <a href="#contact" class="action__link">
+            <button class="email__me">Contact Me</button>
+          </a>
         </div>
-        <div class="spotlight-content">
-            <div class="spotlight-text">
-                <h3>🌍 Spotlight: Study Abroad in Taiwan</h3>
-                <p>
-                    In early 2025, I participated in a study abroad academic program in <strong>Taiwan</strong> focused on cross-cultural learning and Mandarin language studies. Through this experience, I met new peers and developed a deeper appreciation for global perspectives in tech.
-                </p>
-                <p>
-                    This journey reminded me why curiosity and empathy are so important in the tech industry. Going forward, I hope to embrace new challenges and try things with an open mind.
-                </p>
-            </div>
-            <div class="spotlight-highlight">
-                <h3>💡 Favorite Project: Python Autoscroller</h3>
-                <p>
-                    My favorite (and most useful!) project is <strong>my autoscroller</strong>. Outside of school, I like to spend my time immersed in books, e-books, and comics. The autoscroller was a small, random side project that I didn’t realize I would be using so often!
-                </p>
-                <a href="https://github.com/lakshita1212/Python-Autoscroller" target="_blank" class="project-link">View on GitHub ↗</a>
-            </div>
-        </div>
-    </section>
+      </div>
+      
+    </div>
+  </section>
 
-    <section id="work-experience" class="section">
+  <!-- ─── SPOTLIGHT ────────────────────────────────────────── -->
+  <section id="spotlight" class="spotlight-section">
+    <div class="spotlight-heading">
+      <h2>Spotlight Experience &amp; Project</h2>
+    </div>
+    <div class="spotlight-content">
+      <div class="spotlight-text">
+        <h3>🌍 Study Abroad in Taiwan</h3>
+        <p>
+          In early 2025, I participated in a study abroad academic program in <strong>Taiwan</strong>
+          focused on cross-cultural learning and Mandarin language studies. Through this experience,
+          I met new peers and developed a deeper appreciation for global perspectives in tech.
+        </p>
+        <p>
+          This journey reminded me why curiosity and empathy are so important in the tech industry.
+          Going forward, I hope to embrace new challenges and try things with an open mind.
+        </p>
+      </div>
+      <div class="spotlight-highlight">
+        <h3>💡 Favorite Project: Python Autoscroller</h3>
+        <p>
+          My favorite (and most useful!) project is <strong>my autoscroller</strong>. Outside of school,
+          I love spending time immersed in books, e-books, and comics. The autoscroller was a small,
+          spontaneous side project that I didn't realize I'd be using so often!
+        </p>
+        <a href="https://github.com/lakshita1212/Python-Autoscroller" target="_blank" class="project-link">View on GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <br> <br>
+    <br> 
+<section id="river-project">
+    
+    <div class="river-header">
+      <h2>Life on the River</h2>
+      <span class="river-tag">NJIT Service Learning</span>
+    </div>
+
+    <p style="color:var(--ink-soft);font-size:.97rem;max-width:72ch;margin-bottom:.5rem;">
+      An NJIT Service Learning project bridging environmental stewardship with digital 
+      information management—translating physical field documentation of the Passaic 
+      River into an interactive VR visualization prototype.
+    </p>
+
+    <blockquote class="river-philosophy">
+      "Technical work is only as effective as the field documentation and data 
+      organization that supports it."
+    </blockquote>
+
+    <p class="river-contributions-title">Project Arc</p>
+    <div class="river-timeline">
+      <div class="timeline-node">
+        <div class="t-date">April 26</div>
+        <div class="t-title">🌿 Field Day &amp; Cleanup</div>
+        <div class="t-body">
+          Participated in site visits and a physical riverbank cleanup. Gained a first-hand 
+          understanding of the site conditions to ensure the digital records matched 
+          the real-world environment.
+        </div>
+      </div>
+      <div class="timeline-arrow">→</div>
+      <div class="timeline-node">
+        <div class="t-date">Photography &amp; Mapping</div>
+        <div class="t-title">📍 Node Documentation</div>
+        <div class="t-body">
+          Documented key site locations through photography and descriptive mapping, 
+          capturing ecological and historical details for future digital nodes.
+        </div>
+      </div>
+      <div class="timeline-arrow">→</div>
+      <div class="timeline-node">
+        <div class="t-date">In-Progress</div>
+        <div class="t-title">🖥️ Digital Integration</div>
+        <div class="t-body">
+          Developed the master data organization framework and co-designed the CHXR 
+          prototype, working to transition field assets into a functional VR experience.
+        </div>
+      </div>
+    </div>
+
+    <p class="river-contributions-title">Core Contributions</p>
+    <div class="river-grid">
+
+      <div class="river-card">
+        <div class="rc-icon">📊</div>
+        <div class="rc-label">Information Architecture</div>
+        <div class="rc-title">Master Data Organization</div>
+        <p>Created the initial tracking spreadsheet to organize node points across all project teams, ensuring data consistency as the project moved from the field to the backend.</p>
+        <div class="rc-collab">Coordinated with: Jane Kalla, Pooja Datir, Rohit Datir</div>
+      </div>
+
+      <div class="river-card">
+        <div class="rc-icon">🥽</div>
+        <div class="rc-label">Development</div>
+        <div class="rc-title">CHXR + VR Prototype</div>
+        <p>Co-designed the CHXR and VR website demo tool for community engagement, focusing on making ecological data accessible to a non-technical audience.</p>
+      </div>
+
+      <div class="river-card">
+        <div class="rc-icon">☁️</div>
+        <div class="rc-label">Infrastructure</div>
+        <div class="rc-title">Backend Administration</div>
+        <p>Worked with Jane Kalla on the administrative side of Microsoft Azure to troubleshoot storage issues and ensure all media assets were correctly labeled and stored.</p>
+      </div>
+
+      <div class="river-card">
+        <div class="rc-icon">📸</div>
+        <div class="rc-label">Media</div>
+        <div class="rc-title">Field Photography &amp; Film</div>
+        <p>Captured site photography and recorded documentary footage of our process, bridging the gap between physical fieldwork and the final presentation materials.</p>
+      </div>
+
+    </div>
+
+    <p class="river-contributions-title">Project Scope</p>
+    <div class="river-stack">
+      <span class="stack-pill">Microsoft Azure Admin</span>
+      <span class="stack-pill">CHXR / VR Prototyping</span>
+      <span class="stack-pill">Information Management</span>
+      <span class="stack-pill">Field Documentation</span>
+      <span class="stack-pill">Community Stewardship</span>
+    </div>
+  </section>
+  <!-- ─── PROFESSIONAL EXPERIENCE ──────────────────────────── -->
+  <section id="work-experience" class="section">
     <h2>Professional Experience</h2>
     <div class="work-container">
 
-        <div class="work-entry">
-            <img src="assets/merck.png" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="work-item">
-                <h3>Incoming Intern - Merck</h3>
-                <span class="work-date">Summer 2025</span>
-                <p>Excited to join Merck's Tech Future Talent Program.</p>
-            </div>
+      <!-- Grace Hopper Research Institute (new from resume) -->
+      <div class="work-entry">
+        <img src="assets/njit.png" style="width:120px;height:auto;border-radius:6px;" alt="NJIT" />
+        <div class="work-item">
+          <h3>AI in Biomedicine Research Fellow <span class="badge-new">New</span></h3>
+          <span class="work-date">Feb 2026 – Present · Grace Hopper Research Institute, Newark, NJ</span>
+          <ul>
+            <li>Building a React Native/Expo app to gamify neuropsychological exams and capture real-time gesture data.</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="work-entry">
-            <img src="assets/Brown-University-Logo.png" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="work-item">
-                <h3>Incoming Student Researcher - Brown University</h3>
-                <span class="work-date">Fall 2025</span>
-                <p>Will be conducting research in Brown University's Atlas Group.</p>
-            </div>
+      <!-- Google + Cornell Tech (updated from Break Through Tech) -->
+      <div class="work-entry">
+        <img src="assets/btt.png" style="width:120px;height:auto;border-radius:6px;" alt="Break Through Tech / Cornell" />
+        <div class="work-item">
+          <h3>AI/ML Studio Fellow <span class="badge-new">Updated</span></h3>
+          <span class="work-date">May 2025 – Present · Google + Cornell Tech (Break Through Tech), Remote</span>
+          <ul>
+            <li>Selected for competitive Break Through Tech AI Fellowship; matched with Google to predict viral YouTube video longevity.</li>
+            <li>Applied ML techniques to analyze engagement metrics, metadata, and external trends.</li>
+            <li>Completed supervised learning projects using Python and exploratory data analysis.</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="work-entry">
-            <img src="assets/btt.png" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="work-item">
-                <h3>AI/ML Fellow - Break Through Tech, Cornell University</h3>
-                <span class="work-date">May 2025 - Present</span>
-                <ul>
-                    <li>Selected for competitive fellowship to build hands-on ML and data science skills</li>
-                    <li>Completed projects using supervised learning, Python, and exploratory data analysis</li>
-                </ul>
-            </div>
+      <!-- Merck (completed, with outcomes) -->
+      <div class="work-entry">
+        <img src="assets/merck.png" style="width:120px;height:auto;border-radius:6px;" alt="Merck" />
+        <div class="work-item">
+          <h3>Data Analytics Intern</h3>
+          <span class="work-date">Jun 2025 – Aug 2025 · Merck, Rahway, NJ</span>
+          <ul>
+            <li>Worked cross-functionally across business units to support requirements gathering and improve software asset management (SAM) data usability.</li>
+            <li>Analyzed software spend across 1,000+ vendor records, resulting in <strong>$350K+ in annual savings</strong>.</li>
+            <li>Developed an automated Power BI dashboard that reduced time spent on data consolidation by <strong>77%</strong>.</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="work-entry">
-            <img src="assets/njit.png" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="work-item">
-                <h3>Teaching Assistant - Ying Wu College of Computing</h3>
-                <span class="work-date">Sept 2024 - Dec 2024</span>
-                <ul>
-                    <li>Graded over 100 assignments, held weekly office hours, and provided timely and constructive feedback to 60+ students.</li>
-                    <li>Developed and organized extra learning resources, increasing student performance on midterm exams by 10%.</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="work-entry">
-            <img src="assets/download.png" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="work-item">
-                <h3>Tech and Digital Student Program Participant - Zoetis</h3>
-                <span class="work-date">August 2022</span>
-                <ul>
-                    <li>Gained understanding of SAP software, ETL tools, Risk Management, and E-commerce</li>
-                    <li>Led a group to compile a research paper and presentation on Supply Chain in the Pharmaceutical Industry</li>
-                </ul>
-            </div>
+      <!-- Teaching Assistant -->
+      <div class="work-entry">
+        <img src="assets/njit.png" style="width:120px;height:auto;border-radius:6px;" alt="NJIT" />
+        <div class="work-item">
+          <h3>Teaching Assistant</h3>
+          <span class="work-date">Sept 2024 – Dec 2024 · Ying Wu College of Computing, Newark, NJ</span>
+          <ul>
+            <li>Graded 100+ assignments, held weekly office hours, and provided timely feedback to 60+ students.</li>
+            <li>Developed extra learning resources, improving midterm exam performance by 10%.</li>
+          </ul>
         </div>
+      </div>
+
+      <!-- Zoetis -->
+      <div class="work-entry">
+        <img src="assets/download.png" style="width:120px;height:auto;border-radius:6px;" alt="Zoetis" />
+        <div class="work-item">
+          <h3>Tech &amp; Digital Student Program Participant</h3>
+          <span class="work-date">August 2022 · Zoetis</span>
+          <ul>
+            <li>Gained hands-on understanding of SAP software, ETL tools, Risk Management, and E-commerce.</li>
+            <li>Led a team to compile a research paper and presentation on Supply Chain in the Pharmaceutical Industry.</li>
+          </ul>
+        </div>
+      </div>
 
     </div>
-</section>
-<section id="extracurriculars" class="section">
+  </section>
+
+  <!-- ─── EXTRACURRICULARS ──────────────────────────────────── -->
+  <section id="extracurriculars" class="section">
     <h2>Extracurricular Activities</h2>
     <div class="experience__container">
 
-        <div class="experience-entry">
-            <img src="assets/jerseySTEM.jpg" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="experience__box">
-                <h3>Robotics Program Instructor | JerseySTEM Volunteering</h3>
-                <span class="experience-date">March 2025 - Present | Newark, NJ</span>
-                <ul>
-                    <li>Taught weekly robotics classes to middle school girls, providing mentorship and fostering interest in STEM careers.</li>
-                </ul>
-            </div>
+      <!-- WiCS President (updated from Fundraising Coordinator) -->
+      <div class="experience-entry">
+        <img src="assets/wics.jpg" style="width:120px;height:auto;border-radius:6px;" alt="WiCS" />
+        <div class="experience__box">
+          <h3>President <span class="badge-new">Updated</span> | Women in Computing Society</h3>
+          <span class="experience-date">Jan 2024 – Present | NJIT</span>
+          <ul>
+            <li>Elected to lead a 400+ member organization and oversee the executive board for the 2026 academic year.</li>
+            <li>Lead company sponsorships for GirlHacks hackathon (300+ attendees annually).</li>
+            <li>Designed the club's first sponsorship packet, securing 10+ corporate partnerships and raising over <strong>$18,000</strong> to fund the hackathon.</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="experience-entry">
-            <img src="assets/datakind_logo.jpg" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="experience__box">
-                <h3>Data Science Volunteer | DataKind</h3>
-                <span class="experience-date">March 2025 - April 2025 | Remote</span>
-                <ul>
-                    <li>Contributed to data-driven projects by researching and analyzing 10+ data sources.</li>
-                    <li>Partnered with data scientists to uncover financial and economic opportunity insights about Kenya.</li>
-                </ul>
-            </div>
+      <!-- GirlHacks -->
+      <div class="experience-entry">
+        <img src="assets/girlhacks.png" style="width:120px;height:auto;border-radius:6px;" alt="GirlHacks" />
+        <div class="experience__box">
+          <h3>Hackathon Organizer | GirlHacks 2024 Committee</h3>
+          <span class="experience-date">April 2024 – Present | Newark, NJ</span>
+          <ul>
+            <li>Organized GirlHacks Hackathon to empower women, creating an encouraging environment for 300+ attendees.</li>
+            <li>Secured partnerships with 10+ companies and raised $17,250 in funds.</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="experience-entry">
-            <img src="assets/wics.jpg" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="experience__box">
-                <h3>Fundraising Coordinator | Women in Computing Society</h3>
-                <span class="experience-date">January 2024 - Present | NJIT</span>
-                <ul>
-                    <li>Collaborated with board members to organize technical and networking events for over 400 members.</li>
-                    <li>Maintained positive relationships with corporate sponsors, college faculty, and other organizations on campus.</li>
-                </ul>
-            </div>
+      <!-- JerseySTEM -->
+      <div class="experience-entry">
+        <img src="assets/jerseySTEM.jpg" style="width:120px;height:auto;border-radius:6px;" alt="JerseySTEM" />
+        <div class="experience__box">
+          <h3>Robotics Program Instructor | JerseySTEM Volunteering</h3>
+          <span class="experience-date">March 2025 – Present | Newark, NJ</span>
+          <ul>
+            <li>Taught weekly robotics classes to middle school girls, providing mentorship and fostering interest in STEM careers.</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="experience-entry">
-            <img src="assets/girlhacks.png" style="width: 150px; height: auto; border-radius: 10px;" />
-            <div class="experience__box">
-                <h3>Hackathon Organizer | GirlHacks 2024 Committee</h3>
-                <span class="experience-date">April 2024 - Present | Newark, NJ</span>
-                <ul>
-                    <li>Organized GirlHacks Hackathon to empower women, creating an encouraging environment for over 300 attendees.</li>
-                    <li>Designed the first GirlHacks sponsorship packet, secured partnerships with 10+ companies, and raised $17,250 in funds.</li>
-                </ul>
-            </div>
+      <!-- DataKind -->
+      <div class="experience-entry">
+        <img src="assets/datakind_logo.jpg" style="width:120px;height:auto;border-radius:6px;" alt="DataKind" />
+        <div class="experience__box">
+          <h3>Data Science Volunteer | DataKind</h3>
+          <span class="experience-date">March 2025 – April 2025 | Remote</span>
+          <ul>
+            <li>Analyzed 10+ datasets and collaborated with data scientists to uncover financial and economic opportunity insights about Kenya.</li>
+          </ul>
         </div>
+      </div>
 
     </div>
-</section>
+  </section>
 
 
-
-    <section id="projects" class="section">
-        <a href="http://github.com/lakshita1212" target="_blank" class="action__link">
-            <h2>Projects</h2>
-        </a>
-        <div class="projects-container">
-            <div class="project-item">
-                <h3><a href="https://github.com/lakshita1212/DashApp" target="_blank">Data Analysis and Prediction App</a></h3>
-                <p>Collaborated with a team to develop a data prediction application using Python, Dash, and Pandas. The app enables users to upload custom datasets and interactively explore data features to make informed inferences.</p>
-            </div>
-            <div class="project-item">
-                <h3><a href="https://github.com/lakshita1212/Movie-Reviews-Central" target="_blank">Movie Reviews Central</a></h3>
-                <p>Full-stack MERN web app that allows users to browse and submit movie reviews in real-time. Built RESTful APIs with Express and Node.js, used MongoDB for data storage, and implemented a dynamic React front-end.</p>
-            </div>
-            <div class="project-item">
-                <h3><a href="https://github.com/lakshita1212/HackPrinceton" target="_blank">SafePath - HackPrinceton</a></h3>
-                <p>Developed during HackPrinceton. Built with TypeScript, Python, Flask, and Supabase. SafePath allows caretakers to set safety zones for patients with declining health conditions, sending alerts if a patient leaves the zone.</p>
-            </div>
-            <div class="project-item">
-                <h3><a href="https://github.com/lakshita1212/Database-Surfer-for-Kumon-Center" target="_blank">Kumon Database Surfer</a></h3>
-                <p>Co-developed a Flask-based application that allows users to query and retrieve student results from a dataset. Utilized Pandas for efficient data manipulation and designed a simple yet effective user interface using HTML and CSS.</p>
-            </div>
-            <div class="project-item">
-                <h3><a href="https://github.com/lakshita1212/AtmosFlect" target="_blank">AtmosFlect</a></h3>
-                <p>Finalist at HackNJIT 2024. Integrated an interactive map with real-time air pollution and smog data using APIs. Built with Python, JavaScript, Flask, HTML, and CSS to provide users with up-to-date environmental information.</p>
-            </div>
-        </div>
-        <div class="projects-button">
-            <a href="https://github.com/lakshita1212" target="_blank">
-                <button class="more-projects">More Projects</button>
-            </a>
-        </div>
-    </section>
-
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Programming Languages:</strong> Python, Java, C++, C, JavaScript, HTML, CSS, SQL, PHP</li>
-            <li><strong>Frameworks & Tools:</strong> React.js, Node.js, Express.js, Flask, Dash, Git</li>
-            <li><strong>Libraries:</strong> Pandas, NumPy, Scikit-learn</li>
-            <li><strong>Databases:</strong> MongoDB, MySQL, Supabase</li>
-            <li><strong>Other Technologies:</strong> SAP Procurement, GitHub</li>
-        </ul>
-    </section>
-
-    <section id="additional-info">
-  <div class="info-grid">
-    <div class="info-card">
-      <h3>Certifications / Online Courses</h3>
-      <ul>
-        <li><strong>Google Certification Course - Machine Learning</strong> — Ongoing</li>
-        <li><strong>AWS Cloud Practitioner</strong> — Ongoing</li>
-        <li><strong>CodePath Technical Interview Prep</strong> — Completed</li>
-        <li><strong>CodePath Web Development</strong> — Completed</li>
-        <li><strong>Intro to SAP ERP and SAP MM</strong> — Completed</li>
-      </ul>
+  <!-- ─── PROJECTS ──────────────────────────────────────────── -->
+  <section id="projects" class="section">
+    <a href="http://github.com/lakshita1212" target="_blank" class="action__link">
+      <h2>Projects</h2>
+    </a>
+    <div class="projects-container">
+      <div class="project-item">
+        <h3><a href="https://github.com/lakshita1212/DashApp" target="_blank">Data Analysis &amp; Prediction App</a></h3>
+        <p>Collaborated with a team to build a data prediction application using Python, Dash, and Pandas. Users can upload custom datasets and interactively explore features to make informed inferences.</p>
+      </div>
+      <div class="project-item">
+        <h3><a href="https://github.com/lakshita1212/Movie-Reviews-Central" target="_blank">Movie Reviews Central</a></h3>
+        <p>Full-stack MERN web app for browsing and submitting movie reviews in real-time. Built RESTful APIs with Express and Node.js; dynamic React front-end with MongoDB storage.</p>
+      </div>
+      <div class="project-item">
+        <h3><a href="https://github.com/lakshita1212/HackPrinceton" target="_blank">SafePath — HackPrinceton</a></h3>
+        <p>Built with TypeScript, Python, Flask, and Supabase. SafePath lets caretakers set safety zones for patients with declining health conditions, sending alerts if a patient leaves the zone.</p>
+      </div>
+      <div class="project-item">
+        <h3><a href="https://github.com/lakshita1212/Database-Surfer-for-Kumon-Center" target="_blank">Kumon Database Surfer</a></h3>
+        <p>Flask-based app allowing users to query and retrieve student results from a dataset. Used Pandas for data manipulation with a clean HTML/CSS interface.</p>
+      </div>
+      <div class="project-item">
+        <h3><a href="https://github.com/lakshita1212/AtmosFlect" target="_blank">AtmosFlect</a></h3>
+        <p>Finalist at HackNJIT 2024. Integrated an interactive map with real-time air pollution and smog data via APIs. Built with Python, JavaScript, Flask, HTML, and CSS.</p>
+      </div>
     </div>
-<br>
-    <div class="info-card">
-      <h3>Additional Information</h3>
-      <ul>
-        <li><strong>Professional Affiliations:</strong> DataKind, JerseySTEM, Rewriting the Code, CodePath, Grace Hopper Celebration (GHC) 2024</li>
-        <li><strong>Honors & Awards:</strong> Dean’s List, DCU Kids Scholarship, Steering Presidential Award, Woman’s Club Scholarship</li>
-      </ul>
+    <div class="projects-button">
+      <a href="https://github.com/lakshita1212" target="_blank">
+        <button class="more-projects">View All Projects on GitHub</button>
+      </a>
     </div>
-<br>
-    <div class="info-card">
-      <h3>Hobbies & Interests</h3>
-      <ul>
-        <li><strong>Playing the Guitar</strong> - In my free time, I love having jam sessions with my friends who play other instruments! </li>
-        <li><strong>Reading!! </strong> - My favorite genres are fantasy & historical fiction. Current Read — <em>Lovely War</em> by Julie Berry</li>
-        <li><strong>Filming & Editing Movies/Vidoes </strong> - I love editing and producing short video movies about recent trips and short movies. </li>
+  </section>
 
+  <!-- ─── SKILLS ────────────────────────────────────────────── -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Programming Languages:</strong> Python, Java, C++, C, JavaScript, HTML, CSS, SQL, PHP</li>
+      <li><strong>Frameworks &amp; Tools:</strong> React.js, React Native/Expo, Node.js, Express.js, Flask, Dash, Git</li>
+      <li><strong>Libraries &amp; ML:</strong> Pandas, NumPy, Scikit-learn, TensorFlow</li>
+      <li><strong>Databases:</strong> MongoDB, MySQL, Supabase</li>
+      <li><strong>Data &amp; BI:</strong> Power BI, Microsoft Azure, SAP Procurement</li>
+      <li><strong>Other:</strong> GitHub, REST APIs, Service Learning, Technical Documentation</li>
     </ul>
+  </section>
+
+  <!-- ─── ADDITIONAL INFO ───────────────────────────────────── -->
+  <section id="additional-info">
+    <div class="info-grid" style="max-width:1200px;margin:0 auto;padding:5rem clamp(1.5rem,8vw,7rem);">
+      <div class="info-card">
+        <h3>Certifications &amp; Courses</h3>
+        <ul>
+          <li><strong>Google ML Certification</strong> — Ongoing</li>
+          <li><strong>AWS Cloud Practitioner</strong> — Ongoing</li>
+          <li><strong>MongoDB University</strong> (Node.js) — Completed</li>
+          <li><strong>CodePath Technical Interview Prep</strong> — Completed</li>
+          <li><strong>CodePath Web Development</strong> — Completed</li>
+          <li><strong>Intro to SAP ERP &amp; SAP MM</strong> — Completed</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Honors &amp; Affiliations</h3>
+        <ul>
+          <li><strong>Affiliations:</strong> DataKind, JerseySTEM, Rewriting the Code, CodePath, Grace Hopper Celebration (GHC) 2024</li>
+          <li><strong>Awards:</strong> Dean's List, Full Merit Scholarship, DCU Kids Scholarship, Steering Presidential Award, Woman's Club Scholarship</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Hobbies &amp; Interests</h3>
+        <ul>
+          <li><strong>Guitar</strong> — Love jam sessions with friends who play other instruments!</li>
+          <li><strong>Reading</strong> — Favorite genres: fantasy &amp; historical fiction. Current read: <em>Lovely War</em> by Julie Berry.</li>
+          <li><strong>Filming &amp; Editing</strong> — Short movies about trips, plus documentary-style videos for community projects.</li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ─── FOOTER / CONTACT ──────────────────────────────────── -->
+  <footer id="contact">
+    <h2>Contact</h2>
+    <div class="contact-container">
+      <p>
+        <a href="mailto:lakshitamadhavan12@gmail.com">
+          <i class="fas fa-envelope"></i> lakshitamadhavan12@gmail.com
+        </a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/lakshitam04/" target="_blank">
+          <i class="fab fa-linkedin"></i> linkedin.com/in/lakshitam04/
+        </a>
+      </p>
+      <p>
+        <a href="https://github.com/lakshita1212" target="_blank">
+          <i class="fab fa-github"></i> github.com/lakshita1212
+        </a>
+      </p>
+    </div>
+  </footer>
 
-
-    <footer id="contact">
-        <h2>Contact</h2>
-        <div class="contact-container">
-            <p>
-                <a href="mailto:lakshitamadhavan12@gmail.com">
-                    <i class="fas fa-envelope"></i> lakshitamadhavan12@gmail.com
-                </a>
-            </p>
-            <p>
-                <a href="https://www.linkedin.com/in/lakshitam04/" target="_blank">
-                    <i class="fab fa-linkedin"></i> linkedin.com/in/lakshitam04/
-                </a>
-            </p>
-            <p>
-                <a href="https://github.com/lakshita1212" target="_blank">
-                    <i class="fab fa-github"></i> github.com/lakshita1212
-                </a>
-            </p>
-        </div>
-    </footer>
 </body>
 </html>
