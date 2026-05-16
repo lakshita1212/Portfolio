@@ -4,7 +4,7 @@
 
 I'm a CS student who likes building things and learning new skills. When I'm not working on projects, I'm usually with my fellow WiCS club members, running club events, or working on community projects.
 
-[Portfolio Website ↗](https://github.com/lakshita1212/Portfolio) • [LinkedIn ↗](https://www.linkedin.com/in/lakshitam04/)
+[Portfolio Website ↗](https://lakshita1212.github.io/Portfolio/) • [LinkedIn ↗](https://www.linkedin.com/in/lakshitam04/)
 
 ---
 
